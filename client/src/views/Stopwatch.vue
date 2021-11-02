@@ -1,15 +1,13 @@
 <template>
-  <Stopwatch />
+    <Stopwatch />
 </template>
 
 <script>
-  import Stopwatch from '../components/Stopwatch'
+    import Stopwatch from '../components/Stopwatch'
 
-  export default {
-    name: 'Stopwatch',
-
-    components: {
-      Stopwatch,
-    },
-  }
+    export default {
+        components: {
+        Stopwatch,
+        },
+    }
 </script>
