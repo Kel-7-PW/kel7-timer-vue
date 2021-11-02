@@ -22,7 +22,7 @@
                     <v-avatar
                         size="130"
                     >
-                        <!-- <img src="#" alt="admin profile picture"> -->
+                        <img src="../assets/logo.png" alt="admin profile picture">
                     </v-avatar>
                 </v-col>
             </v-row>
@@ -32,7 +32,7 @@
                 <v-col
                     cols="9"
                 >
-                    <p class="white--text">Kel 7 Stopwatch</p>
+                    <p class="white--text">Kelompok 7</p>
                 </v-col>
             </v-row>
 
@@ -67,8 +67,10 @@ export default {
             drawer: false,
             group: null,
             items: [
-                {icon: 'mdi-book-open', title: 'Stopwatch', route: '/'},
-                {icon: 'mdi-book-open', title: 'HelloWorld', route: '/HelloWorld'}
+                {icon: 'mdi-book-open', title: 'Actor List', route: '/'},
+                {icon: 'mdi-account', title: 'Actor Registration', route: '/register-new-actor'},
+                {icon: 'mdi-filmstrip', title: 'Film List', route: '/film-list'},
+                {icon: 'mdi-account-box', title: 'About Me', route: '/about'}
             ]
         }
     },
