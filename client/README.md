@@ -1,4 +1,4 @@
-# stopwatch
+# client
 
 ## Project setup
 ```

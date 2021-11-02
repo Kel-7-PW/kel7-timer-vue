@@ -53,34 +53,6 @@ router.put('/:id',async(req,res,next) =>{
         next(error)
     }
 })
-
-//UPDATE Data Title  Berdasarkan Id Stopwatch
-router.put('/title/:id',async(req,res,next) =>{ 
-    try {
-        const stopwatch = req.body
-        const sqlText = `UPDATE stopwatchvue SET title = $1 WHERE id = $2 RETURNING *`
-        const sqlParams =[stopwatch.title, req.params.id]
-        const result = (await db.query(sqlText,sqlParams)).rows
-        res.json(result)
-    } catch (error) {   
-        console.error(error)
-        next(error)
-    }
-})
-//UPDATE Data Akhir Berdasarkan Id Stopwatch
-router.put('/final/:id',async(req,res,next) =>{ 
-    try {
-        const stopwatch = req.body
-        const sqlText = `UPDATE stopwatchvue SET total_waktu = $1 , selisih_akhir =$2
-        WHERE id = $3 RETURNING *`
-        const sqlParams =[stopwatch.total_waktu, stopwatch.selisih_akhir, req.params.id]
-        const result = (await db.query(sqlText,sqlParams)).rows
-        res.json(result)
-    } catch (error) {   
-        console.error(error)
-        next(error)
-    }
-})
 //DELETE Stopwatch Berdasarkan ID
 router.delete('/:id', async (req,res,next)=>{
     try {
