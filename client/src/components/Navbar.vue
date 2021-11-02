@@ -1,83 +1,83 @@
 <template>
-    <div>
-        <v-app-bar
-            app
-            dark
-            color="teal lighten-1"
-        >
-            <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-            <v-toolbar-title>Stopwatch</v-toolbar-title>
-        </v-app-bar>
+  <div>
 
-        <v-navigation-drawer
-            v-model="drawer"
-            absolute
-            temporary
-            dark
-            color="teal"
-        >
-            <!-- Avatar Admin -->
-            <v-row justify="center" class="mt-5">
-                <v-col cols="7">
-                    <v-avatar
-                        size="130"
-                    >
-                        <img src="../assets/logo.png" alt="admin profile picture">
-                    </v-avatar>
-                </v-col>
-            </v-row>
+    <!-- app bar / menu bar / nav bar -->
+    <v-app-bar
+      app
+    >
+      <v-app-bar-nav-icon
+        @click.stop="drawer = !drawer"
+      ></v-app-bar-nav-icon>
 
-            <!-- Nama Admin -->
-            <v-row justify="center" class="mt-n1">
-                <v-col
-                    cols="9"
-                >
-                    <p class="white--text">Kelompok 7</p>
-                </v-col>
-            </v-row>
+      <v-toolbar-title>{{title}}</v-toolbar-title>
+             
+      <v-spacer></v-spacer>
 
-            <!-- Navigasi -->
-            <v-list
-                nav
-                dense
-            >
-                <v-list-item-group
-                    v-model="group"
+      <!-- switch theme -->
+      <v-switch
+        :value="darkMode" 
+        @change="toggleDarkMode" 
+        :label="`${switchLabel}`"
+        hide-details
+      ></v-switch>
+    </v-app-bar>
 
-                >
-                    <v-list-item v-for="(item, index) in items" :key="index" :to="item.route">
-                        <v-list-item-icon>
-                            <v-icon v-text="item.icon"></v-icon>
-                        </v-list-item-icon>
-                        <v-list-item-content>
-                            <v-list-item-title v-text="item.title"></v-list-item-title>
-                        </v-list-item-content>
-                    </v-list-item>
-                </v-list-item-group>
-            </v-list>
-        </v-navigation-drawer>
+    <v-navigation-drawer
+      v-model="drawer"
+      absolute
+      temporary
+    >
+    <!-- list menu -->
+    <v-list 
+      nav
+      class="mt-2"
+    >
+        <v-list-item v-for="(item, index) in items" :key="index" :to="item.route">
+          <v-list-item-icon>
+            <v-icon v-text="item.icon"></v-icon>
+          </v-list-item-icon>
+                        
+          <v-list-item-content>
+            <v-list-item-title v-text="item.title"></v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
 
-    </div>
+    </v-list>
+
+    </v-navigation-drawer>
+  </div>
 </template>
 
 <script>
 export default {
-    data(){
-        return{
-            drawer: false,
-            group: null,
-            items: [
-                {icon: 'mdi-book-open', title: 'Actor List', route: '/'},
-                {icon: 'mdi-account', title: 'Stopwatch', route: '/Stopwatch'},
-                {icon: 'mdi-filmstrip', title: 'Film List', route: '/film-list'},
-                {icon: 'mdi-account-box', title: 'About Me', route: '/about'}
-            ]
-        }
+    name:'Navbar',
+    props:{
+        title:String,
     },
-    watch: {
-        group(){
-            this.drawer = false
-        }
+    data(){ 
+      return{
+        darkMode: false,
+        drawer: false,
+        items: [
+          { title: 'List Stopwatch', icon: 'mdi-format-list-bulleted-square', route: '/' },
+        ],
+      }
+    },
+    methods: {
+      toggleDarkMode: function () {
+        this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+        this.darkMode = !this.darkMode;
+      }
+    },
+    computed: {
+      switchLabel: function () {
+        return this.darkMode ? 'Light' : 'Dark';
+      }
+    },
+    watch:{
+      group(){
+        this.drawer = false
+      }
     }
 }
 </script>
