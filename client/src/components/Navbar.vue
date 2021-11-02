@@ -68,6 +68,7 @@ export default {
             group: null,
             items: [
                 {icon: 'mdi-book-open', title: 'Stopwatch', route: '/'},
+                {icon: 'mdi-book-open', title: 'HelloWorld', route: '/HelloWorld'}
             ]
         }
     },
