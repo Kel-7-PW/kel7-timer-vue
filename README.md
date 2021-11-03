@@ -192,8 +192,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Tubagus M Akbar K - tubagus.muchamad.tif419@polban.ac.id
-
 Project Link: [https://github.com/Kel-7-PW/kel7-timer-vue](https://github.com/Kel-7-PW/kel7-timer-vue)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
