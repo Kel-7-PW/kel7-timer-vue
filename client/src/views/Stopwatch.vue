@@ -237,6 +237,28 @@ export default {
     },
     dummy(number){
         return number + "Hi"
-    }
+    },
+    addNewRow() {
+      this.stopwatch.push(
+              { 
+                id: 1,
+                title: 'Stopwatch',
+                timer: undefined,
+                last: null,
+                lastdiff: null,
+                isPlay:false,
+                countdown: 0,
+                pauseTime: 0,
+                startTime: 0,
+              });
+        },
+
+        deleteRow(index, stopwatch) {
+          var idx = this.stopwatch.indexOf(stopwatch);
+          console.log(idx, index);
+          if (idx > -1) {
+            this.stopwatch.splice(idx, 1);
+          }
+        }
 }
 </script>
