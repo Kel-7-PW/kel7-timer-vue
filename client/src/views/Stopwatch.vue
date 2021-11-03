@@ -22,7 +22,7 @@
   <v-container fluid>
     <v-row>
       <v-col
-      v-for="(item, i) in stopwatch"
+      v-for="(item, i) in items"
       :key="i"
       cols="12"
       >  
@@ -160,9 +160,8 @@
 export default {
   name: 'App',
     components:{},
-    data() {
-        return {
-            stopwatch: [
+        data: () => ({
+      items: [
                 { 
                     id: 1,
                     title: 'Stopwatch',
@@ -198,67 +197,35 @@ export default {
                     time: null,
                     diff: null
                 }
-            ]
-
-        }
-    },
+            ],
+    }),
 
     methods: {
-        start(index) {
-        //check dulu ada yang lagi jalan ga
-        for (let i = 0; i < this.stopwatch.length; i++){
-          console.log("Start Stopwatch" + this.i)
-          console.log(this.stopwatch[i].status)
-          if(this.stopwatch[i].isPlay == true && i !== index){
-            this.pause(i)
-            break;
-          }
-        }
-        console.log("Start Stopwatch" + this.i)
-        this.stopwatch[index].isPlay = true
-        this.stopwatch[index].timer = setInterval(() => {
-            this.stopwatch[index].countdown += 1000;
-        }, 1000);
-        
-      },
-    },
-    timestampToStopwatch(countdown){
-        var hours = Math.floor(countdown / 3600);
-        countdown -= hours * 3600;
-        var mins = Math.floor(countdown / 60);
-        countdown -= mins * 60;
-        var secs = countdown;
+        //changeTitle(index, items) {
+          //
+        //},
 
-            // (B2) UPDATE THE DISPLAY TIMER
-        if (hours < 10) { hours = "0" + hours; }
-        if (mins < 10) { mins = "0" + mins; }
-        if (secs < 10) { secs = "0" + secs; }
-        return hours + ":" + mins + ":" + secs;
-    },
-    dummy(number){
-        return number + "Hi"
-    },
-    addNewRow() {
-      this.stopwatch.push(
-              { 
-                id: 1,
-                title: 'Stopwatch',
-                timer: undefined,
-                last: null,
-                lastdiff: null,
-                isPlay:false,
-                countdown: 0,
-                pauseTime: 0,
-                startTime: 0,
-              });
+        addNewRow() {
+            this.items.push({
+                    id: 2,
+                    title: 'Stopwatch',
+                    timer: undefined,
+                    last: null,
+                    lastdiff: null,
+                    isPlay:false,
+                    countdown: 0,
+                    pauseTime: 0,
+                    startTime: 0,
+            });
         },
 
-        deleteRow(index, stopwatch) {
-          var idx = this.stopwatch.indexOf(stopwatch);
+        deleteRow(index, items) {
+          var idx = this.items.indexOf(items);
           console.log(idx, index);
           if (idx > -1) {
-            this.stopwatch.splice(idx, 1);
+            this.items.splice(idx, 1);
           }
         }
+    },
 }
 </script>
