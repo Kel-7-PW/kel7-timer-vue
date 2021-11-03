@@ -114,7 +114,7 @@ Berikut beberapa dependencies yang dibutuhkan untuk menjalankan program
 
 1. Clone reporsitori
    ```sh
-   git clone https://github.com/tubagusmakbark/191524063_D43B_Tubagus-M-Akbar-K
+   git clone https://github.com/Kel-7-PW/kel7-timer-vue
    ```
 2. Setting DB anda di ``` /server/.env ```
 3. Buka Terminal
