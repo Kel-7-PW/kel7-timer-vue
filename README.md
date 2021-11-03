@@ -41,7 +41,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![picture alt](https://github.com/Kel-7-PW/kel7-timer-javascript/blob/main/Output/Stopwatch-Menu.png "Title")
 
 Tugas pembuatan mini project stopwatch ini menggunakan HTML, CSS dan VanillaJs yang telah ditugaskan pada mata kuliah Pengembangan Web kelas D4-3B di Jurusan Teknik Informatika POLBAN
 
